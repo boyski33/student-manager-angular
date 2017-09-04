@@ -1,3 +1,30 @@
-<p>
-  course-list works!
-</p>
+<h4 *ngIf="courses.length == 0" class="text-danger">
+  There are currently no courses.
+</h4>
+<table *ngIf="courses.length > 0" class="table">
+  <thead>
+  <th>Name</th>
+  <th>Hours</th>
+  <th></th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let course of courses"
+      (click)="onSelect(course)"
+      [class.selected-row]="course === selectedCourse"
+  >
+    <td>{{course.name}}</td>
+    <td>{{course.hours}}</td>
+    <td>
+      <button class="btn btn-danger delete-btn" (click)="removeCourse(course)">X</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<!--<section id="edit-course-section" *ngIf="selectedCourse">-->
+<!--<h4>Edit Selected Course</h4>-->
+<!--<label>Name:</label>-->
+<!--<input type="text" [(ngModel)]="selectedCourse.name"/>-->
+<!--<label>Hours:</label>-->
+<!--<input type="text" [(ngModel)]="selectedCourse.hours"/>-->
+<!--<button (click)="saveCourse()">Save Changes</button>-->
+<!--</section>-->

@@ -4,12 +4,27 @@ import {CourseComponent} from './course.component';
 import {CourseAddComponent} from './course-add/course-add.component';
 import {CourseListComponent} from './course-list/course-list.component';
 import {CourseService} from './course.service';
+import {RouterModule, Routes} from '@angular/router';
+import {FormsModule} from '@angular/forms';
+
+const courseRoutes: Routes = [
+    {
+        path: 'courses',
+        component: CourseComponent
+    }
+];
 
 @NgModule({
     imports: [
-        CommonModule
+        CommonModule,
+        FormsModule,
+        RouterModule.forRoot(courseRoutes)
     ],
-    declarations: [CourseComponent, CourseAddComponent, CourseListComponent],
+    declarations: [
+        CourseComponent,
+        CourseAddComponent,
+        CourseListComponent
+    ],
     providers: [CourseService]
 })
 export class CourseModule {

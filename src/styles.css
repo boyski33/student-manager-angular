@@ -1,0 +1,32 @@
+.jumbotron {
+  text-align: center;
+}
+
+.jumbotron h2 {
+  font-size: 5em;
+  color: purple;
+}
+
+.selected-row {
+  background-color: #adadad;
+}
+
+#edit-course-section {
+  margin-top: 30px;
+}
+
+tr:hover {
+  cursor: pointer;
+}
+
+td {
+  max-width: 100px;
+}
+
+.page-header {
+  text-align: center;
+}
+
+.delete-btn {
+  float: right;
+}

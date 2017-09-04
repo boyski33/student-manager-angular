@@ -1,3 +1,17 @@
-<p>
-  teacher-add works!
-</p>
+<form (submit)="addTeacher($event)">
+  <label>
+    Name: <input type="text" name="name" [(ngModel)]="newTeacher.name" required>
+  </label>
+  <label>
+    Age: <input type="number" name="age" [(ngModel)]="newTeacher.age" required>
+  </label>
+  <label>
+    Gender: <input id="gender" type="text" name="gender" [(ngModel)]="newTeacher.gender" required>
+  </label>
+  <label>
+    Degree: <input type="text" name="degree" [(ngModel)]="newTeacher.degree" required>
+  </label>
+  <section>
+    <button class="btn" type="submit">Add Teacher</button>
+  </section>
+</form>

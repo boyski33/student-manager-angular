@@ -4,24 +4,16 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {RouterModule, Routes} from '@angular/router';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
-import { HomeComponent } from './home/home.component';
-import { StudentListComponent } from './student/student-list/student-list.component';
-import { StudentAddComponent } from './student/student-add/student-add.component';
-import { StudentAddGradeComponent } from './student/student-add-grade/student-add-grade.component';
-import { CourseModule } from './course/course.module';
-import { StudentComponent } from './student/student.component';
-import { TeacherComponent } from './teacher/teacher.component';
-import { TeacherAddComponent } from './teacher/teacher-add/teacher-add.component';
-import { StudentModule } from './student/student.module';
-import { TeacherModule } from './teacher/teacher.module';
+import {HomeComponent} from './home/home.component';
+import {CourseModule} from './course/course.module';
+import {StudentModule} from './student/student.module';
+import {TeacherModule} from './teacher/teacher.module';
+import {HttpModule} from '@angular/http';
 
 const appRoutes: Routes = [
     {
         path: 'home',
         component: HomeComponent
-    },
-    {
-
     },
     {
         path: '',
@@ -34,23 +26,18 @@ const appRoutes: Routes = [
     }
 ];
 
+export const serverUrl = 'http://localhost:8080';
+
 @NgModule({
     declarations: [
         AppComponent,
         PageNotFoundComponent,
-        HomeComponent,
-        StudentListComponent,
-        StudentAddComponent,
-        StudentAddGradeComponent,
-        StudentComponent,
-        TeacherComponent,
-        TeacherAddComponent,
+        HomeComponent
     ],
     imports: [
         BrowserModule,
-        RouterModule.forRoot(
-            appRoutes
-        ),
+        HttpModule,
+        RouterModule.forRoot(appRoutes),
         CourseModule,
         StudentModule,
         TeacherModule

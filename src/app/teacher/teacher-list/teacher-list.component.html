@@ -1,0 +1,39 @@
+<h4 *ngIf="teachers.length == 0" class="text-danger">
+  There are currently no teachers.
+</h4>
+<table *ngIf="teachers.length > 0" class="table">
+  <thead>
+  <th>Name</th>
+  <th>Age</th>
+  <th>Gender</th>
+  <th>Degree</th>
+  <th></th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let teacher of teachers"
+      (click)="onSelect(teacher)"
+      [class.selected-row]="teacher === selectedTeacher"
+  >
+    <td>{{teacher.name}}</td>
+    <td>{{teacher.age}}</td>
+    <td>{{teacher.gender}}</td>
+    <td>{{teacher.degree}}</td>
+    <td>
+      <button class="btn btn-danger delete-btn" (click)="removeTeacher(teacher)">X</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<section *ngIf="selectedTeacher">
+  <section class="alert-danger" *ngIf="selectedTeacher.courses.length == 0">
+    <h4>This teacher has no courses.</h4>
+  </section>
+  <section *ngIf="selectedTeacher.courses.length > 0">
+    <h4>{{selectedTeacher.name}}'s courses</h4>
+    <ol>
+      <li *ngFor="let course of selectedTeacher.courses">
+        {{course.name}}
+      </li>
+    </ol>
+  </section>
+</section>

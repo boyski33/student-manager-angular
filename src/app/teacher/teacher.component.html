@@ -1,3 +1,12 @@
-<p>
-  teacher works!
-</p>
+<section class="col-md-4">
+  <h3 class="page-header">All Teachers</h3>
+  <app-teacher-list #list></app-teacher-list>
+</section>
+<section class="col-md-4">
+  <h3 class="page-header">Add Teacher</h3>
+  <app-teacher-add (addTeacherEmitter)="list.getTeachers()"></app-teacher-add>
+</section>
+<section class="col-md-4">
+  <h3 class="page-header">Add Course to Teacher</h3>
+  <app-teacher-add-course></app-teacher-add-course>
+</section>
